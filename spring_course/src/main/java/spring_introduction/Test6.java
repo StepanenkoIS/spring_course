@@ -8,10 +8,13 @@ public class Test6 {
   public static void main(String[] args) {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
     Man man = context.getBean("manBean", Man.class);
-    man.callYouPet();
+//    man.callYouPet();
+//
+//    Pet cat = context.getBean("catBean", Pet.class);
+//    cat.say();
 
-    Pet cat = context.getBean("catBean", Pet.class);
-    cat.say();
+    System.out.println(man.getAge());
+    System.out.println(man.getSurname());
 
     context.close();
 
