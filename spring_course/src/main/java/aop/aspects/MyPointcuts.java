@@ -7,6 +7,6 @@ public class MyPointcuts {
   @Pointcut("execution(* getBook())")
   public void allGetMethods(){}
 
-  @Pointcut("execution(* add*(..))")
+  @Pointcut("execution(* addT*(..))")
   public void allAddMethods(){}
 }
