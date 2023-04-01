@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 
 
-  @Before("execution(public void aop.AbstractLibrary.getBook())")
+  @Before("execution(public * getBook(aop.Book))")
   public void beforeGetBookAdvice() {
     System.out.println("beforeGetBookAdvice(): попытка получить книгу");
   }
@@ -28,9 +28,14 @@ public class LoggingAspect {
     System.out.println("beforeReturnBookAdvice(): попытка вернуть книгу");
   }
 
-  @Before("execution(* *())")
+  @Before("execution(* *(*))")
   public void beforeForAllAdvice() {
-    System.out.println("beforeForAllAdvice(): для всех методов");
+    System.out.println("beforeForAllAdvice(): для всех методов с одним параметром");
+  }
+
+  @Before("execution(* *(..))")
+  public void beforeForAllAdvice2() {
+    System.out.println("beforeForAllAdvice2(): для всех методов с любым кол-вом параметров");
   }
 
 }
