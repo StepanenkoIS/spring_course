@@ -25,7 +25,7 @@ public class University {
     System.out.println("Старт работы метода getStudents");
 
     //Для выброса Исключения
-    System.out.println(students.get(100));
+//    System.out.println(students.get(100));
 
     System.out.println("Information from method getStudents: ");
     System.out.println(students);

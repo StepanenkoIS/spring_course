@@ -2,10 +2,8 @@ package aop.aspects;
 
 
 import aop.Student;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,7 +17,6 @@ public class UniversityLoggingAspect {
   public void beforeGetStudentsLoggingAdvice() {
     System.out.println("beforeGetStudentsLoggingAdvice: логируем получение списка студентов перед методом getStudents");
   }
-
 
 
   @AfterReturning(pointcut = "execution(* getStudents())", returning = "students")
@@ -40,4 +37,10 @@ public class UniversityLoggingAspect {
     System.out.println("afterThrowingGetStudentsLoggingAdvice: логируем выброс исключения: " + exception);
   }
 
+  //Возможно использвоать только JoinPoint
+  @After("execution(* getStudents())")
+  public void afterGetStudentsLoggingAdvice(JoinPoint joinPoint) {
+    System.out.println("afterGetStudentsLoggingAdvice: логируем нормальное завершение метода или выброс исключения");
+    System.out.println(joinPoint);
+  }
 }
