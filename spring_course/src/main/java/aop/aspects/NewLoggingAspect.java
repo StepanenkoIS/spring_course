@@ -15,16 +15,19 @@ public class NewLoggingAspect {
   public Object aroundReturnBookAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
     System.out.println("aroundReturnBookAdvice: в библиотеку пытаются вернуть книгу");
 
-    long begin = System.currentTimeMillis();
-    //Запускам  метод
-    Object targetMethodResult = proceedingJoinPoint.proceed();
-    //Изменение результата
-    targetMethodResult = "Война и мир";
-    long end = System.currentTimeMillis();
+    Object targetMethodResult = null;
+    try {
+      //Запускам  метод
+      targetMethodResult = proceedingJoinPoint.proceed();
+    } catch (Exception exception) {
+      System.out.println("Было поймано исключение: " + exception);
+      // Изменение результата
+//      targetMethodResult = "неизвестное название книги";
+      throw exception;
+    }
 
     System.out.println("aroundReturnBookAdvice: в библиотеку успешно вернули книгу");
 
-    System.out.println("Время работы метода aroundReturnBookAdvice: " + (end - begin) + " мс");
 
     return targetMethodResult;
   }
