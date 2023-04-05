@@ -17,7 +17,7 @@ public class Test1 {
     //Получение сессии
     Session session = factory.getCurrentSession();
 
-    Employee employee = new Employee("Ivan", "Ivanov", "IT", 500);
+    Employee employee = new Employee("Alex", "Pupkin", "Sales", 700);
 
     //Открытие транзакции
     session.beginTransaction();
@@ -27,7 +27,7 @@ public class Test1 {
     //Закрытие транзакции
     session.getTransaction().commit();
 
-
+    System.out.println("All ok!");
 
 
 
