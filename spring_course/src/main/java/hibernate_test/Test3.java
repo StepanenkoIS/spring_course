@@ -5,7 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test1 {
+import java.util.List;
+
+public class Test3 {
 
   public static void main(String[] args) {
     // Создание SessionFactory, configure() - можно не указывать название файла если оно стандартное
@@ -15,18 +17,29 @@ public class Test1 {
       .buildSessionFactory();
 
     try {
-      //Получение сессии
       Session session = factory.getCurrentSession();
-      Employee employee = new Employee("Alex", "Pupkin", "HR", 900);
-      //Открытие транзакции
       session.beginTransaction();
-      session.save(employee);
+
+      //"from Employee" - указывается имя Класса
+      List<Employee> list = session.createQuery("from Employee").getResultList();
+      for (Employee e: list)
+        System.out.println(e);
+
+
+      List<Employee> list2 = session.createQuery("from Employee where name = 'Alex'").getResultList();
+      for (Employee e: list2)
+        System.out.println(e);
+
+      List<Employee> list3 = session.createQuery("from Employee where name = 'Alex' AND salary>750").getResultList();
+      for (Employee e: list3)
+        System.out.println(e);
+
       session.getTransaction().commit();
+
+
       System.out.println("All ok!");
-      System.out.println(employee);
 
     } finally {
-      //Закрытие
       factory.close();
     }
 
