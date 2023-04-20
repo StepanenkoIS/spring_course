@@ -4,8 +4,8 @@ package hibernate_test_2.entyty;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "deteils")
-public class Deteil {
+@Table(name = "details")
+public class Detail {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +22,10 @@ public class Deteil {
   @Column(name = "email")
   private String email;
 
-  public Deteil() {
+  public Detail() {
   }
 
-  public Deteil(String city, String phoneNumber, String email) {
+  public Detail(String city, String phoneNumber, String email) {
     this.city = city;
     this.phoneNumber = phoneNumber;
     this.email = email;
@@ -65,7 +65,7 @@ public class Deteil {
 
   @Override
   public String toString() {
-    return "Deteil{" +
+    return "Detail{" +
       "id=" + id +
       ", city='" + city + '\'' +
       ", phoneNumber='" + phoneNumber + '\'' +
