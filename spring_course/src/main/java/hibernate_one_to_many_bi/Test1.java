@@ -20,36 +20,42 @@ public class Test1 {
     try {
 //      session = factory.getCurrentSession();
 //      session.beginTransaction();
-//      Department dep = new Department("IT", 300, 1200);
+//      Department dep = new Department("Sales", 300, 1200);
 //      Employee empl1 = new Employee("Alex", "Sidorov",  500);
 //      Employee empl2 = new Employee("Rina", "Ivanova", 1000);
+//      Employee empl3 = new Employee("Anton", "Antonov", 1200);
 //      dep.addEmployeeToDepartment(empl1);
 //      dep.addEmployeeToDepartment(empl2);
-//
-//      //Сохранится департамент и оба работника
+//      dep.addEmployeeToDepartment(empl3);
+//      //Сохранится департамент и всех работников
 //      session.save(dep)  ;
-//
 //      session.getTransaction().commit();
 //      System.out.println("All ok!");
 
-
-//      session = factory.getCurrentSession();
-//      session.beginTransaction();
-//      Department dep = session.get(Department.class, 1);
-//      System.out.println(dep);
-//      System.out.println(dep.getEmps());
-//      Employee emp1 = session.get(Employee.class, 1);
-//      System.out.println(emp1);
-//      System.out.println(emp1.getDepartment());
-//      session.getTransaction().commit();
-//      System.out.println("All ok!");
 
       session = factory.getCurrentSession();
       session.beginTransaction();
-      Employee emp1 = session.get(Employee.class, 4);
-      session.delete(emp1);
+      System.out.println("Get department");
+      Department dep = session.get(Department.class, 8);
+      System.out.println("Show department");
+      System.out.println(dep);
+
+      System.out.println("Подгрузить работников");
+      dep.getEmps().get(0);
+
       session.getTransaction().commit();
+
+      System.out.println("Show employee");
+      System.out.println(dep.getEmps());
+
       System.out.println("All ok!");
+
+//      session = factory.getCurrentSession();
+//      session.beginTransaction();
+//      Employee emp1 = session.get(Employee.class, 4);
+//      session.delete(emp1);
+//      session.getTransaction().commit();
+//      System.out.println("All ok!");
 
 
     } finally {
