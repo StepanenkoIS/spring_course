@@ -1,12 +1,10 @@
-package hibernate_test_2.entyty;
-
+package hibernate_one_to_many_bi.entyty;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
-
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,23 +17,19 @@ public class Employee {
   @Column(name = "surname")
   private String surname;
 
-  @Column(name = "department")
-  private String department;
-
   @Column(name = "salary")
   private int salary;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "details_id")
-  private Detail empDetail;
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE})
+  @JoinColumn(name = "department_id")
+  private Department department;
 
   public Employee() {
   }
 
-  public Employee(String name, String surname, String department, int salary) {
+  public Employee(String name, String surname, int salary) {
     this.name = name;
     this.surname = surname;
-    this.department = department;
     this.salary = salary;
   }
 
@@ -63,14 +57,6 @@ public class Employee {
     this.surname = surname;
   }
 
-  public String getDepartment() {
-    return department;
-  }
-
-  public void setDepartment(String department) {
-    this.department = department;
-  }
-
   public int getSalary() {
     return salary;
   }
@@ -79,12 +65,12 @@ public class Employee {
     this.salary = salary;
   }
 
-  public Detail getEmpDetail() {
-    return empDetail;
+  public Department getDepartment() {
+    return department;
   }
 
-  public void setEmpDetail(Detail empDetail) {
-    this.empDetail = empDetail;
+  public void setDepartment(Department department) {
+    this.department = department;
   }
 
   @Override
@@ -93,9 +79,8 @@ public class Employee {
       "id=" + id +
       ", name='" + name + '\'' +
       ", surname='" + surname + '\'' +
-      ", department='" + department + '\'' +
       ", salary=" + salary +
-      ", empDeteil=" + empDetail +
       '}';
   }
+
 }
