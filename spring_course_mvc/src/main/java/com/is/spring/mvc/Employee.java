@@ -1,11 +1,20 @@
 package com.is.spring.mvc;
 
-import java.util.HashMap;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Map;
+import java.util.HashMap;
+
 
 public class Employee {
 
+
+  @Size(min = 2, max = 5, message = "Invalid length")
   private String name;
+
+//  @NotEmpty(message = "surname is required field")
+  @NotBlank(message = "surname is required field")
   private String surname;
   private int Salary;
   private String department;
