@@ -1,5 +1,8 @@
 package com.is.spring.mvc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Employee {
 
   private String name;
@@ -7,7 +10,21 @@ public class Employee {
   private int Salary;
   private String department;
 
+  private Map<String, String> departments;
+
   public Employee() {
+    departments = new HashMap<>();
+    departments.put("Information Technology", "IT");
+    departments.put("Human Resources", "HR");
+    departments.put("Sales", "Sales");
+  }
+
+  public Map<String, String> getDepartments() {
+    return departments;
+  }
+
+  public void setDepartments(Map<String, String> departments) {
+    this.departments = departments;
   }
 
   public String getName() {
