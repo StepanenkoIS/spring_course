@@ -13,7 +13,13 @@
 Your name: ${param.employeeName}
 --%>
 
-Your name: ${nameAttribute}
+Your name: ${employee.name}
+<br> <br> <br>
+
+Your surname: ${employee.surname}
+<br> <br> <br>
+
+Your salary: ${employee.salary}
 
 <br>
 <br>
