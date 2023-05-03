@@ -16,6 +16,10 @@
     <input type="submit">
 </form>
 
+<br>
+<br>
+<a href="/spring_course_mvc/employee/"> Back home page </a>
+
 </body>
 
 </html>

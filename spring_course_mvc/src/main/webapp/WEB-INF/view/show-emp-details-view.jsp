@@ -13,8 +13,11 @@
 Your name: ${param.employeeName}
 --%>
 
-Your name: ${nameAttribute} ${description}
+Your name: ${nameAttribute}
 
+<br>
+<br>
+<a href="/spring_course_mvc/employee/"> Back home page </a>
 
 </body>
 
