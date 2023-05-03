@@ -12,11 +12,35 @@ public class Employee {
 
   private Map<String, String> departments;
 
+  private String carBrand;
+
+  private Map<String, String> carBrands;
+
   public Employee() {
     departments = new HashMap<>();
     departments.put("Information Technology", "IT");
     departments.put("Human Resources", "HR");
     departments.put("Sales", "Sales");
+
+    carBrands = new HashMap<>();
+    carBrands.put("Niva 4x4", "Niva");
+    carBrands.put("Lada Vesta", "Lada");
+    carBrands.put("Moskvitch 3", "Moskvitch");  }
+
+  public Map<String, String> getCarBrands() {
+    return carBrands;
+  }
+
+  public void setCarBrands(Map<String, String> carBrands) {
+    this.carBrands = carBrands;
+  }
+
+  public String getCarBrand() {
+    return carBrand;
+  }
+
+  public void setCarBrand(String carBrand) {
+    this.carBrand = carBrand;
   }
 
   public Map<String, String> getDepartments() {
@@ -66,6 +90,8 @@ public class Employee {
       ", surname='" + surname + '\'' +
       ", Salary=" + Salary +
       ", department='" + department + '\'' +
+      ", departments=" + departments +
+      ", carBrand='" + carBrand + '\'' +
       '}';
   }
 }

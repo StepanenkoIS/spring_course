@@ -31,6 +31,21 @@
 </form:select>
     <br> <br> <br>
 
+<%--    Which car do you want?--%>
+<%--    <br>--%>
+<%--    Niva <form:radiobutton path="carBrand" value="Niva"/>--%>
+<%--    <br>--%>
+<%--    Lada Vesta <form:radiobutton path="carBrand" value="Lada Vesta"/>--%>
+<%--    <br>--%>
+<%--    Moskvitch 3 <form:radiobutton path="carBrand" value="Moskvitch 3"/>--%>
+<%--    <br>--%>
+
+
+    Which car do you want?
+    <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
+
+
+
     <input type="submit" value="OK">
 
 </form:form>

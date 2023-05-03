@@ -23,6 +23,10 @@ Your salary: ${employee.salary}
 <br> <br> <br>
 
 Your department: ${employee.department}
+<br> <br> <br>
+
+Your car: ${employee.carBrand}
+
 
 <br>
 <br>
