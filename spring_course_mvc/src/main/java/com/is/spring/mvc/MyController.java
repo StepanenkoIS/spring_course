@@ -39,8 +39,6 @@ public class MyController {
   public String showEmployeeDetails(@Valid @ModelAttribute("employee") Employee employee,
                                     BindingResult bindingResult) {
 
-    System.out.println(employee.getSurname().length());
-
     if (bindingResult.hasErrors())
       return "ask-emp-details-view";
     else

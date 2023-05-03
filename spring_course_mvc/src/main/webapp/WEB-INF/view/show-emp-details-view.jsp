@@ -23,6 +23,9 @@ Your surname: ${employee.surname}
 Your salary: ${employee.salary}
 <br> <br> <br>
 
+Your phoneNumber: ${employee.phoneNumber}
+<br> <br> <br>
+
 Your department: ${employee.department}
 <br> <br> <br>
 

@@ -1,8 +1,8 @@
 package com.is.spring.mvc;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -16,7 +16,12 @@ public class Employee {
 //  @NotEmpty(message = "surname is required field")
   @NotBlank(message = "surname is required field")
   private String surname;
+
+  //Работает, но сообщения не выводятся
+  @Min(value = 500, message = "must be greater than 499")
+  @Max(value = 1000, message = "must be less than 1001")
   private int Salary;
+
   private String department;
 
   private Map<String, String> departments;
@@ -28,6 +33,10 @@ public class Employee {
   private String[]  languages;
 
   private  Map<String, String>  languageList;
+
+  @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "please use pattern XXX-XX-XX")
+  private String phoneNumber;
+
 
 
   public Employee() {
@@ -47,6 +56,13 @@ public class Employee {
     languageList.put("French", "FR");
   }
 
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
   public Map<String, String> getLanguageList() {
     return languageList;

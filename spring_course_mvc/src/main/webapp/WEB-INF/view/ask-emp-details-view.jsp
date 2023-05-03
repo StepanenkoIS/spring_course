@@ -22,7 +22,12 @@
     <br> <br> <br>
 
     Salary <form:input path="salary"/>
+    <form:errors path="salary"/>
     <br> <br> <br>
+
+    PhoneNumber <form:input path="phoneNumber"/>
+    <form:errors path="phoneNumber"/>
+    <br><br><br>
 
 <%--    Department <form:select path="department">--%>
 <%--    <form:option value="Information Technology" label="IT"/>--%>
