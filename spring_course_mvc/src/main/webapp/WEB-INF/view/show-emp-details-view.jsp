@@ -26,6 +26,9 @@ Your salary: ${employee.salary}
 Your phoneNumber: ${employee.phoneNumber}
 <br> <br> <br>
 
+Your email: ${employee.email}
+<br> <br> <br>
+
 Your department: ${employee.department}
 <br> <br> <br>
 
