@@ -32,7 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
   @Override
   public void saveEmployee(Employee employee) {
     Session session = sessionFactory.getCurrentSession();
-    //if (id == 0) save els update
+    //if (id == 0) save else update
     session.saveOrUpdate(employee);
   }
 
@@ -41,5 +41,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     Session session = sessionFactory.getCurrentSession();
     Employee employee = session.get(Employee.class, id);
     return employee;
+  }
+
+  @Override
+  public void deleteEmployee(int id) {
+    Session session = sessionFactory.getCurrentSession();
+    Query<Employee> query = session.createQuery("delete  from Employee where id = :employeeId");
+    query.setParameter("employeeId", id);
+    query.executeUpdate();
   }
 }

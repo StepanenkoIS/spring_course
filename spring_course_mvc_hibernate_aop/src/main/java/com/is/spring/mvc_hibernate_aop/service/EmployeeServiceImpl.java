@@ -1,6 +1,7 @@
-package com.is.spring.mvc_hibernate_aop.entity;
+package com.is.spring.mvc_hibernate_aop.service;
 
 import com.is.spring.mvc_hibernate_aop.dao.EmployeeDAO;
+import com.is.spring.mvc_hibernate_aop.entity.Employee;
 import com.is.spring.mvc_hibernate_aop.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,11 @@ public class EmployeeServiceImpl implements EmployeeService {
   public Employee getEmployee(int id) {
     Employee employee = employeeDAO.getEmployee(id);
     return employee;
+  }
+
+  @Override
+  @Transactional
+  public void deleteEmployee(int id) {
+    employeeDAO.deleteEmployee(id);
   }
 }
