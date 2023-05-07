@@ -10,6 +10,8 @@
 <br>
 
 <form:form action="saveEmployee" modelAttribute="employee">
+<%--    Данное поле не отображается--%>
+    <form:hidden path="id"/>
 
     Name<form:input path="name"/>
     <br> <br> <br>
