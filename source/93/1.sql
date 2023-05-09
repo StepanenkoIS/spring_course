@@ -25,5 +25,13 @@ VALUES
 	('elena', 'ROLE_HR'),
     ('ivan', 'ROLE_HR'),
 	('ivan', 'ROLE_MANAGER');
-    
+
+
+/*Для шифрования использовался сайт https://www.browserling.com/tools/bcrypt */
+update my_db.users set password = '{bcrypt}$2a$10$sslzQk569FvzJKzz9JO1rOM5qlLU6x56XEzA1HeytWwOz7qTCuKDy'
+where username = 'zaur';
+update my_db.users set password = '{bcrypt}$2a$10$WKQwi1IyL.cdLO4QUmncCe/2UeMGi3DqnHQ6Qlkl4pApe2KL9HmKq'
+where username = 'elena';
+update my_db.users set password = '{bcrypt}$2a$10$N28RhIc0szQpceRtiF4vUuaSBuQEV8qe1MTzdP9W05XmidujIEzH2'
+where username = 'ivan';
     
