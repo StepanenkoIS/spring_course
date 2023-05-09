@@ -47,6 +47,19 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope><!-- -->
+			<optional>true</optional>
+		</dependency>
+<!-- for idea 2022.3.2
+1)Have devtools enable in maven or gradle. In maven, it looks like :
+2)In IntellijIDEA: go in settings(ctrl +alt+s) -> Build,Execution,Deployment -> compiler, check "Build project automatically"
+3) Enable option 'allow auto-make to start even if developed application is currently running' in Settings -> Advanced Settings under compiler
+-->
+
 	</dependencies>
 
 	<build>
